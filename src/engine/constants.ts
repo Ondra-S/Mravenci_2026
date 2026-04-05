@@ -1,0 +1,9 @@
+export const STARTING_CASTLE = 30;
+export const STARTING_WALL = 10;
+export const STARTING_RESOURCES = 5;
+export const STARTING_GENERATORS = 2;
+export const HAND_SIZE = 6;
+export const WIN_CASTLE = 100;
+export const WIN_RESOURCES = 100;
+export const MIN_GENERATOR = 1;
+export const MAX_CASTLE = 100;

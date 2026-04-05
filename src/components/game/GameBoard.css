@@ -1,0 +1,73 @@
+.game-board {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.game-board-backdrop {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(139, 90, 43, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(74, 127, 181, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(90, 158, 79, 0.05) 0%, transparent 40%),
+    var(--bg-dark);
+  z-index: 0;
+}
+
+.game-board > * {
+  position: relative;
+  z-index: 1;
+}
+
+.game-arena {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 10px;
+  min-width: 0;
+}
+
+.castles-area {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 24px;
+  flex: 1;
+  max-width: 500px;
+}
+
+.vs-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  align-self: center;
+}
+
+.vs-text {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 1.5rem;
+  color: var(--gold);
+  text-shadow: 0 0 10px rgba(184, 157, 100, 0.3);
+  opacity: 0.6;
+}
+
+.hand-area {
+  padding: 8px 0 16px;
+  background: linear-gradient(180deg, transparent 0%, rgba(10, 8, 5, 0.6) 30%);
+}
+
+.hand-label {
+  text-align: center;
+  font-family: 'MedievalSharp', cursive;
+  font-size: 0.9rem;
+  color: var(--gold);
+  margin-bottom: 4px;
+  opacity: 0.8;
+}

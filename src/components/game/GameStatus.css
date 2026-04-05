@@ -1,0 +1,98 @@
+.game-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 0;
+}
+
+.turn-indicator {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 1.3rem;
+  color: var(--gold);
+  text-shadow: 0 0 10px rgba(184, 157, 100, 0.4);
+  animation: fadeIn 0.3s ease;
+}
+
+.turn-ai {
+  opacity: 0.7;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.last-played {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.last-played strong {
+  color: var(--text-light);
+}
+
+/* Game Over overlay */
+.game-over-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fadeIn 0.5s ease;
+}
+
+.game-over-dialog {
+  background: rgba(20, 15, 10, 0.95);
+  border: 2px solid var(--gold);
+  border-radius: 16px;
+  padding: 3rem 4rem;
+  text-align: center;
+  box-shadow: 0 0 60px rgba(184, 157, 100, 0.2);
+  animation: scaleIn 0.4s ease;
+}
+
+.game-over-title {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin: 0 0 0.5rem 0;
+  text-shadow: 0 0 20px rgba(184, 157, 100, 0.5);
+}
+
+.game-over-subtitle {
+  color: var(--text-dim);
+  font-size: 1.1rem;
+  margin: 0 0 2rem 0;
+}
+
+.game-over-btn {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 1.2rem;
+  padding: 0.8rem 2.5rem;
+  background: linear-gradient(180deg, rgba(184, 157, 100, 0.2) 0%, rgba(139, 90, 43, 0.3) 100%);
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.game-over-btn:hover {
+  background: linear-gradient(180deg, rgba(184, 157, 100, 0.35) 0%, rgba(139, 90, 43, 0.45) 100%);
+  box-shadow: 0 0 20px rgba(184, 157, 100, 0.3);
+  transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}

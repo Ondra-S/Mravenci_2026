@@ -1,0 +1,8 @@
+.hand {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 16px 10px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
