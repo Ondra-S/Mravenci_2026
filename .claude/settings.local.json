@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "Bash(export PATH=\"/c/Users/uzivatel/node-v22.15.0-win-x64:$PATH\")",
+      "Bash(npx tsc:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(gh auth:*)",
+      "Bash(git remote:*)",
+      "Bash(git push:*)"
+    ]
+  }
+}
