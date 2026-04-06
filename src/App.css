@@ -79,26 +79,30 @@ html, body {
   80% { transform: translateX(4px); }
 }
 
-/* === Responsive === */
+/* === Responsive - Tablet === */
 @media (max-width: 900px) {
   .game-arena {
     flex-direction: column;
     gap: 8px;
     padding: 0 8px;
   }
-  .game-arena .player-panel {
+  .panels-row {
+    display: flex;
+    gap: 8px;
     width: 100%;
-    max-width: 360px;
+    max-width: 500px;
+  }
+  .game-arena .player-panel {
+    width: 50%;
+    max-width: none;
   }
   .game-arena .player-panel .panel-resources {
     flex-direction: row;
     gap: 6px;
+    flex-wrap: wrap;
   }
   .game-arena .player-panel .resource-row {
     flex: 1;
-  }
-  .castles-area {
-    order: -1;
   }
   .card {
     width: 120px;
@@ -106,12 +110,223 @@ html, body {
   }
 }
 
+/* === Responsive - Mobile === */
 @media (max-width: 600px) {
-  .card {
-    width: 105px;
-    min-height: 155px;
+  html, body {
+    font-size: 14px;
   }
-  .card-name { font-size: 0.8rem; }
-  .card-cost { font-size: 0.75rem; }
-  .card-description { font-size: 0.7rem; }
+
+  /* Game board: fill viewport exactly, no scroll */
+  .game-board {
+    min-height: 100vh;
+    max-height: 100vh;
+    min-height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
+  }
+
+  /* Status bar compact */
+  .game-status {
+    padding: 4px 0 2px;
+    gap: 2px;
+  }
+  .turn-indicator {
+    font-size: 1rem;
+  }
+  .last-played {
+    font-size: 0.7rem;
+  }
+
+  /* Game arena: castles on top, panels side-by-side below */
+  .game-arena {
+    flex-direction: column;
+    gap: 4px;
+    padding: 0 4px;
+    flex: 1;
+    min-height: 0;
+  }
+
+  /* Castles: smaller, on top */
+  .castles-area {
+    order: -1;
+    gap: 12px;
+    flex: 0 0 auto;
+  }
+  .castle-scene {
+    width: 120px;
+    height: 130px;
+  }
+  .castle-keep {
+    width: 40px;
+  }
+  .keep-body {
+    min-height: 20px;
+    padding: 4px 2px;
+    gap: 4px;
+  }
+  .keep-window {
+    width: 6px;
+    height: 8px;
+  }
+  .keep-gate {
+    width: 12px;
+    height: 14px;
+    border-radius: 6px 6px 0 0;
+  }
+  .merlon {
+    width: 6px;
+    height: 6px;
+  }
+  .keep-battlements {
+    height: 6px;
+  }
+  .castle-tower {
+    width: 16px;
+  }
+  .tower-top {
+    border-left-width: 8px;
+    border-right-width: 8px;
+    border-bottom-width: 10px;
+  }
+  .tower-body {
+    min-height: 14px;
+  }
+  .tower-window {
+    width: 4px;
+    height: 6px;
+  }
+  .castle-wall {
+    width: 35px;
+    bottom: 8px;
+  }
+  .wall-battlements {
+    height: 4px;
+  }
+  .wall-merlon {
+    width: 7px;
+    height: 4px;
+  }
+  .castle-ground {
+    height: 8px;
+  }
+  .castle-labels {
+    font-size: 0.8rem;
+    gap: 10px;
+  }
+  .vs-text {
+    font-size: 1rem;
+  }
+
+  /* Player panels: side by side, compact */
+  .panels-row {
+    display: flex;
+    gap: 6px;
+    width: 100%;
+    max-width: 100%;
+  }
+  .game-arena .player-panel {
+    width: 50%;
+    max-width: none;
+    padding: 6px 8px;
+    border-radius: 8px;
+    flex-shrink: 1;
+  }
+  .panel-label {
+    font-size: 0.85rem;
+    margin: 0 0 4px 0;
+  }
+  .panel-structure {
+    gap: 8px;
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+  }
+  .structure-icon {
+    font-size: 1rem;
+  }
+  .structure-value {
+    font-size: 1rem;
+  }
+  .structure-name {
+    font-size: 0.6rem;
+  }
+  .game-arena .player-panel .panel-resources {
+    flex-direction: row;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  .game-arena .player-panel .resource-row {
+    flex: 1;
+    min-width: 0;
+    padding: 3px 4px;
+    border-radius: 4px;
+  }
+  .gen-label {
+    font-size: 0.55rem;
+  }
+  .gen-value {
+    font-size: 0.85rem;
+  }
+  .res-icon {
+    font-size: 0.75rem;
+  }
+  .res-value {
+    font-size: 0.9rem;
+    min-width: 16px;
+  }
+
+  /* Hand: scrollable, cards accessible */
+  .hand-area {
+    padding: 4px 0 8px;
+    flex: 0 0 auto;
+  }
+  .hand-label {
+    font-size: 0.75rem;
+    margin-bottom: 2px;
+  }
+  .hand {
+    padding: 6px 12px;
+    gap: 6px;
+    justify-content: flex-start;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .hand .card {
+    scroll-snap-align: start;
+  }
+
+  /* Cards: compact for mobile */
+  .card {
+    width: 95px;
+    min-height: 130px;
+  }
+  .card-header {
+    padding: 4px 6px;
+  }
+  .card-name { font-size: 0.7rem; }
+  .card-cost { font-size: 0.65rem; }
+  .card-body {
+    padding: 4px 6px;
+  }
+  .card-description { font-size: 0.6rem; line-height: 1.3; }
+  .card-extra { font-size: 0.6rem; margin: 3px 0 0 0; }
+  .card-resource-label { font-size: 0.55rem; padding: 2px; }
+  .card-actions {
+    padding: 3px 4px;
+    gap: 3px;
+  }
+  .card-btn {
+    padding: 4px 0;
+    font-size: 0.65rem;
+  }
+  .card-playable:hover {
+    transform: none;
+  }
+
+  /* Game over dialog */
+  .game-over-dialog {
+    padding: 2rem;
+  }
+  .game-over-title {
+    font-size: 1.8rem;
+  }
 }
