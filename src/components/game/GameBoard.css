@@ -28,9 +28,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 16px;
   padding: 0 10px;
   min-width: 0;
+}
+
+/* Desktop: single row with panels flanking castles */
+@media (min-width: 901px) {
+  .game-arena {
+    flex-direction: row;
+  }
+  .panels-row {
+    display: contents;
+  }
+  .panel-left {
+    order: -1;
+  }
+  .panel-right {
+    order: 1;
+  }
+  .castles-area {
+    order: 0;
+  }
 }
 
 .castles-area {
@@ -56,6 +75,14 @@
   color: var(--gold);
   text-shadow: 0 0 10px rgba(184, 157, 100, 0.3);
   opacity: 0.6;
+}
+
+.panels-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
 }
 
 .hand-area {

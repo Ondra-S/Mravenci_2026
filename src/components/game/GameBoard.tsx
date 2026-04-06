@@ -33,13 +33,6 @@ export function GameBoard({ state, onPlayCard, onDiscardCard, onReturnToMenu }: 
 
       {/* Middle area: panels + castles */}
       <div className="game-arena">
-        <PlayerPanel
-          player={state.players[0]}
-          label={player1Label}
-          isActive={state.currentPlayer === 0}
-          side="left"
-        />
-
         <div className="castles-area">
           <Castle player={state.players[0]} side="left" />
           <div className="vs-divider">
@@ -48,12 +41,20 @@ export function GameBoard({ state, onPlayCard, onDiscardCard, onReturnToMenu }: 
           <Castle player={state.players[1]} side="right" />
         </div>
 
-        <PlayerPanel
-          player={state.players[1]}
-          label={player2Label}
-          isActive={state.currentPlayer === 1}
-          side="right"
-        />
+        <div className="panels-row">
+          <PlayerPanel
+            player={state.players[0]}
+            label={player1Label}
+            isActive={state.currentPlayer === 0}
+            side="left"
+          />
+          <PlayerPanel
+            player={state.players[1]}
+            label={player2Label}
+            isActive={state.currentPlayer === 1}
+            side="right"
+          />
+        </div>
       </div>
 
       {/* Bottom area: current player's hand */}
