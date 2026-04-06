@@ -296,11 +296,11 @@ html, body {
     flex-shrink: 0;
   }
 
-  /* Cards: compact for mobile, fit ~5 per row */
+  /* Cards: compact for mobile, 3 per row */
   .card {
-    width: calc((100vw - 42px) / 5);
+    width: calc((100vw - 36px) / 3);
     min-height: 0;
-    max-width: 85px;
+    max-width: 120px;
   }
   .card-header {
     padding: 4px 6px;
